@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -8,7 +9,7 @@ import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   form: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private authService:AuthService) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -22,8 +23,11 @@ export class RegisterComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   onSubmit(){
-    console.log(this.form.value);
-    console.log(this.form.valid);
+    const myObserver = {
+      next: x => console.log('Observer got a next value: ' + x),
+      error: err => console.error('Error because ' + err),
+    };
+    this.authService.register(this.form.value).subscribe(myObserver);
   }
 
 }
