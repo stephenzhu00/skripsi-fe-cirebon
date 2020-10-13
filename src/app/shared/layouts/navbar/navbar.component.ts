@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgProgress } from 'ngx-progressbar';
 import { ProgressBarService } from '../../services/progress-bar.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,7 @@ import { ProgressBarService } from '../../services/progress-bar.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private progress: NgProgress,public progressBar:ProgressBarService) { }
+  constructor(private progress: NgProgress,public progressBar:ProgressBarService,public authService:AuthService) { }
 
   ngOnInit(): void {
     this.progressBar.progressRef = this.progress.ref('progressBar');
