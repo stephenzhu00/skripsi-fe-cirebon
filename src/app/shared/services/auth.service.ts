@@ -10,6 +10,9 @@ export class AuthService {
   authUrl = 'http://localhost:8085/';
   confirmEmailUrl="test.com";
   helper = new JwtHelperService();
+  // TODO DELETE TOKEN
+  // TODO VIDEO 42 MAKE BOOTSWATCH ? 
+  decodedToken:any;
 
   constructor(private http:HttpClient) {
 
@@ -21,6 +24,8 @@ export class AuthService {
         if(user.result == "MANTAP"){
           console.log("Save to local");
           localStorage.setItem('token', user.token);
+          this.decodedToken = this.helper.decodeToken(user.token);
+          console.log(this.decodedToken);
         }
       })
     );
