@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../../shared/services/auth.service';
 import { ProgressBarService } from '../../../shared/services/progress-bar.service';
 import { AlertService } from 'ngx-alerts';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,11 @@ import { AlertService } from 'ngx-alerts';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
-  constructor(private formBuilder: FormBuilder, private authService:AuthService,private progressBar:ProgressBarService,private alertService: AlertService) { }
+  constructor(private formBuilder: FormBuilder, 
+              private authService:AuthService,
+              private progressBar:ProgressBarService,
+              private alertService: AlertService,
+              private router:Router) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -32,6 +37,7 @@ export class LoginComponent implements OnInit {
         this.progressBar.completeLoading();
         console.log('Observer got a next value: ' + x);
         this.alertService.success('You are logged in');
+        this.router.navigate(['']);
       },
       error: err => {
         this.progressBar.setError();
