@@ -15,6 +15,11 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr *ngIf="cartService.cart.length == 0 ">
+                                    <div>
+                                        NO DATA
+                                    </div>
+                                </tr>
                                 <tr *ngFor="let product of cartService.cart">
                                     <td class="product__cart__item">
                                         <div class="product__cart__item__pic">
@@ -29,7 +34,8 @@
                                         <div class="quantity">
                                             <div class="pro-qty-2">
                                                 <i class="fas fa-chevron-left"></i>
-                                                <input type="text" value="1">
+                                                <!-- <input type="text" [value]="product.quantity"> -->
+                                                <p>{{product.quantity}}</p>
                                                 <i class="fas fa-chevron-right"></i>
                                             </div>
                                         </div>
@@ -49,7 +55,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="continue__btn update__btn">
-                            <a href="#"><i class="fa fa-spinner"></i> Update cart</a>
+                            <a href="#">Update cart</a>
                         </div>
                     </div>
                 </div>
@@ -75,8 +81,5 @@
             </div>
         </div>
     </div>
-    <!-- <div *ngIf="cart.length == 0 ">
-        <p>Wah, keranjang belanjamu kosong</p>
-    </div> -->
 </section>
 <!-- Shopping Cart Section End -->

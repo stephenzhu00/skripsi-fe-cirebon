@@ -33,10 +33,8 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     this.formSubmitted = true;
     if(this.form.invalid){
-      console.log("invalid");
       return;
     }
-    console.log(this.form.value);
     this.alertService.info('Checking User Info');
     this.progressBar.startLoading();
     const myObserver = {
@@ -55,7 +53,5 @@ export class LoginComponent implements OnInit {
       },
     };
     this.authService.login(this.form.value).subscribe(myObserver);
-    console.log(this.form.value);
-    console.log(this.form.valid);
   }
 }

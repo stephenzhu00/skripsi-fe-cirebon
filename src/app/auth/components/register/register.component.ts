@@ -34,10 +34,8 @@ export class RegisterComponent implements OnInit {
   onSubmit(){
     this.formSubmitted = true;
     if(this.form.invalid){
-      console.log("invalid");
       return;
     }
-    console.log(this.form.value)
     this.alertService.info('Going to register');
     this.progressBar.startLoading();
     const myObserver = {

@@ -22,10 +22,8 @@ export class AuthService {
       map((response:any)=>{
         const user = response;
         if(user.result == "MANTAP"){
-          console.log("Save to local");
           localStorage.setItem('token', user.token);
           this.decodedToken = this.helper.decodeToken(user.token);
-          console.log(this.decodedToken);
         }
       })
     );

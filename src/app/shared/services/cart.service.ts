@@ -8,11 +8,18 @@ export class CartService{
   cart= [];
   constructor(private alertService: AlertService) { }
   addToCart(product){
-    this.cart.push(product);
-    this.alertService.success(product.title+" success insert");
+    var index = this.cart.findIndex(item => item.id === product.id);
+    if (index > -1) {
+      this.cart[index].quantity = this.cart[index].quantity + 1;
+      console.log(this.cart[index].quantity);
+    } else {
+      product.quantity = 1;
+      this.cart.push(product);
+    }
+    this.alertService.success(product.title+" added to cart");
     localStorage.setItem('cart', JSON.stringify(this.cart));
-    // localStorage.setItem('cart',this.cart.toString());
   }
+
   getProduct(){
     return this.cart;
   }
@@ -21,7 +28,10 @@ export class CartService{
     if(index !== -1){
       this.cart.splice(index,1);
       localStorage.setItem('cart',JSON.stringify(this.cart));
-      this.alertService.warning(product.title+" success delete");
+      this.alertService.warning(product.title+" deleted from cart");
     }
+  }
+  calculateTotalPrice(){
+
   }
 }
