@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
+  formSubmitted = false;
   constructor(private formBuilder: FormBuilder, 
               private authService:AuthService,
               private progressBar:ProgressBarService,
@@ -24,11 +25,18 @@ export class LoginComponent implements OnInit {
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
+    this.formSubmitted = false;
   }
   // tslint:disable-next-line: typedef
   get f() {return this.form.controls; }
   // tslint:disable-next-line: typedef
   onSubmit(){
+    this.formSubmitted = true;
+    if(this.form.invalid){
+      console.log("invalid");
+      return;
+    }
+    console.log(this.form.value);
     this.alertService.info('Checking User Info');
     this.progressBar.startLoading();
     const myObserver = {

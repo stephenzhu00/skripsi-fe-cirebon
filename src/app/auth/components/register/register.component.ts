@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { AuthService } from '../../../shared/services/auth.service';
 import { ProgressBarService } from '../../../shared/services/progress-bar.service';
 import { AlertService } from 'ngx-alerts';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,9 +12,15 @@ import { AlertService } from 'ngx-alerts';
 })
 export class RegisterComponent implements OnInit {
   form: FormGroup;
-  constructor(private formBuilder: FormBuilder,private authService:AuthService,private progressBar:ProgressBarService, private alertService:AlertService) { }
+  formSubmitted;
+  constructor(private formBuilder: FormBuilder,
+              private authService:AuthService,
+              private progressBar:ProgressBarService, 
+              private alertService:AlertService,
+              private router:Router) { }
 
   ngOnInit(): void {
+    this.formSubmitted = false;
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
@@ -25,6 +32,12 @@ export class RegisterComponent implements OnInit {
  
   // tslint:disable-next-line: typedef
   onSubmit(){
+    this.formSubmitted = true;
+    if(this.form.invalid){
+      console.log("invalid");
+      return;
+    }
+    console.log(this.form.value)
     this.alertService.info('Going to register');
     this.progressBar.startLoading();
     const myObserver = {
@@ -33,6 +46,7 @@ export class RegisterComponent implements OnInit {
         this.progressBar.completeLoading()
         console.log('Observer got a next value: ' + x);
         this.alertService.success("Register Success");
+        this.router.navigate(['auth/login']);
       },
       error: err => {
         this.progressBar.setError();
