@@ -12,6 +12,7 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
 import { CartComponent } from './pages/cart/cart.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { TransactionComponent } from './pages/transaction/transaction.component';
+import { RatingModule } from 'ng-starrating';
 
 @NgModule({
   declarations: [
@@ -21,10 +22,11 @@ import { TransactionComponent } from './pages/transaction/transaction.component'
     ProductListComponent,
     CartComponent,
     ProductDetailComponent,
-    TransactionComponent
+    TransactionComponent,
   ],
   imports: [
     BrowserModule,
+    RatingModule,
     AppRoutingModule,
     SharedModule,
     AuthModule,

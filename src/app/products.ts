@@ -41,7 +41,7 @@ export const Products = [
         img_url:"assets/img/instagram-5.jpg",
         desc:"ini adalah tas terkeren",
         price:59999,
-        rating:4.5,
+        rating:1.5,
         quantity:20
     },
     {

@@ -19,6 +19,11 @@ export class CartComponent implements OnInit {
   calculateTotalPrice(){
     return this.cartService.calculateTotalPrice();
   }
+  directToTransaction(){
+  //  TODO Ngehit backend ??
+    this.cartService.createInvoice();
+  }
+
   decr(product){
     console.log("decr");
     this.cartService.decrementQty(product);

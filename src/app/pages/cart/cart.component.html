@@ -24,10 +24,10 @@
                                 <tr *ngFor="let product of cartService.cart">
                                     <td class="product__cart__item">
                                         <div class="product__cart__item__pic">
-                                            <img src="{{product.img_url}}" alt="" />
+                                            <img src="{{product.img_url}}" alt="" height="100" width="100"/>
                                         </div>
                                         <div class="product__cart__item__text">
-                                            <h6>{{product.name}}</h6>
+                                            <h6>{{product.title}}</h6>
                                             <h5>{{product.price | currency:"Rp ":'symbol':'1.0' }}</h5>
                                         </div>
                                     </td>
@@ -76,7 +76,7 @@
                         <li>Total <span>{{calculateTotalPrice() | currency:"Rp ":'symbol':'1.0' }}</span></li>
                     </ul>
                     <div class="text-center">
-                        <a href="#" class="btn btn-dark">Proceed to checkout</a>
+                        <a (click)="directToTransaction()" class="btn btn-dark">Proceed to checkout</a>
                     </div>
                 </div>
             </div>

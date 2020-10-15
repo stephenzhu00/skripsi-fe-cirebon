@@ -9,8 +9,8 @@ import { TransactionComponent } from './pages/transaction/transaction.component'
 
 const routes: Routes = [
   {path: '',redirectTo:'product', pathMatch: 'full',},
-  {path: 'product', component: HomeComponent, canActivate: [AuthGuard]},
-  {path: 'product/:id',component:ProductDetailComponent, canActivate: [AuthGuard]},
+  {path: 'product', component: HomeComponent},
+  {path: 'product/:id',component:ProductDetailComponent},
   {path: 'transaction',component:TransactionComponent, canActivate:[AuthGuard]},
   {path: 'cart', component: CartComponent, canActivate: [AuthGuard]},
   {

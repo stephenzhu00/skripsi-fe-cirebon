@@ -1,12 +1,16 @@
 import { Injectable, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertService } from 'ngx-alerts';
+import { Transactions } from '../../transactions';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService{
   cart= [];
-  constructor(private alertService: AlertService) { }
+  transaction=Transactions;
+  constructor(private alertService: AlertService,
+              private router:Router) { }
   addToCart(product){
     var index = this.cart.findIndex(item => item.id === product.id);
     if (index > -1) {
@@ -31,6 +35,7 @@ export class CartService{
       this.alertService.warning(product.title+" deleted from cart");
     }
   }
+
   decrementQty(product){
     var index = this.cart.findIndex(item=> item.id === product.id);
     if(index > -1 && this.cart[index].quantity > 0){
@@ -55,5 +60,10 @@ export class CartService{
       totalPrice+= this.cart[i].price * this.cart[i].quantity;
     }
     return totalPrice;
+  }
+  
+  createInvoice(){
+    // TODO CREATE INVOICE
+    this.router.navigate(['/transaction']);
   }
 }

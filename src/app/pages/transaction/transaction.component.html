@@ -1,1 +1,15 @@
-<p>transaction works!</p>
+<div class="container">
+    <div *ngFor="let transaction of this.cartService.transaction" class="card border-primary mb-3">
+        <div class="card-header">
+            {{transaction.transaction_id}}
+        </div>
+        <div class="card-title">
+            {{transaction.total}}
+        </div>
+        <div *ngFor="let item of transaction.items" class="card-text">
+            <div>
+                {{item.title}} : {{item.quantity}}
+            </div>
+        </div>
+    </div>
+</div>
