@@ -28,7 +28,7 @@
                                         </div>
                                         <div class="product__cart__item__text">
                                             <h6>{{product.name}}</h6>
-                                            <h5>{{product.price | currency:"Rp ":'symbol':'3.0' }}</h5>
+                                            <h5>{{product.price | currency:"Rp ":'symbol':'1.0' }}</h5>
                                         </div>
                                     </td>
                                     <td class="quantity__item">
@@ -41,7 +41,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="cart__price">{{product.price | currency:"Rp ":'symbol':'3.0' }}</td>
+                                    <td class="cart__price">{{product.price | currency:"Rp ":'symbol':'1.0' }}</td>
                                     <td class="cart__close" (click)="deleteItem(product)"><i class="fas fa-times"></i></td>
                                 </tr>
                             </tbody>
