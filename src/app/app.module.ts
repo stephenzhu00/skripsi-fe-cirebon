@@ -10,6 +10,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { TransactionComponent } from './pages/transaction/transaction.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { CartComponent } from './pages/cart/cart.component';
     HomeComponent,
     PageNotFoundComponent,
     ProductListComponent,
-    CartComponent
+    CartComponent,
+    ProductDetailComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,

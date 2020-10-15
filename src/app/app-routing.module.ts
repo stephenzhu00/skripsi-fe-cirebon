@@ -4,9 +4,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { AuthGuard } from './auth/auth.guard';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { TransactionComponent } from './pages/transaction/transaction.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent , pathMatch: 'full', canActivate: [AuthGuard]},
+  {path: '',redirectTo:'product', pathMatch: 'full',},
+  {path: 'product', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'product/:id',component:ProductDetailComponent, canActivate: [AuthGuard]},
+  {path: 'transaction',component:TransactionComponent, canActivate:[AuthGuard]},
   {path: 'cart', component: CartComponent, canActivate: [AuthGuard]},
   {
     path: 'auth',

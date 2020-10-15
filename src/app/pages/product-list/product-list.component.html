@@ -1,5 +1,5 @@
 <div class="row">
-    <div *ngFor="let product of products" class="col-md-4">
+    <div *ngFor="let product of productService.products" class="col-md-4">
         <a [routerLink]="['/product/'+product.id]"><img src="{{product.img_url}}" alt=""></a>
         <div>
             <h6>{{product.title}}</h6>
