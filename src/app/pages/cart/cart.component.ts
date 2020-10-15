@@ -19,4 +19,11 @@ export class CartComponent implements OnInit {
   calculateTotalPrice(){
     return this.cartService.calculateTotalPrice();
   }
+  decr(product){
+    console.log("decr");
+    this.cartService.decrementQty(product);
+  }
+  incr(product){
+    this.cartService.incrementQty(product);
+  }
 }
