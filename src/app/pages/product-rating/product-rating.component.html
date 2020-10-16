@@ -12,7 +12,7 @@
     </div>
     <div class="col-sm-5 border-right">
         <div class="col">
-            <div class="row-sm-6"><h6 class="title-color">{{product.title}}</h6></div>
+            <div class="row-sm-6"><a [routerLink]="['/product/'+product.id]" ><h6 class="title-color">{{product.title}}</h6></a></div>
                 <div class="row-sm-6">
                     <span class="price-color">{{product.price | currency:"Rp ":'symbol':'1.0'}} </span>{{product.quantity}} Produk
                 </div>
