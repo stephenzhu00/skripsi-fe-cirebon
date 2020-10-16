@@ -39,14 +39,14 @@ export const Transactions=[
                 quantity:2
             },
             {
-                id:2,
-                title:"Sepatu",
-                img_url:"assets/img/instagram-2.jpg",
-                desc:"ini adalah Sepatu terkeren",
-                price:29999,
-                rating:4.5,
+                id:3,
+                title:"meja dan kursi",
+                img_url:"assets/img/instagram-3.jpg",
+                desc:"ini adalah meja dan kursi terkeren",
+                price:39999,
+                rating:2.5,
                 quantity:3
-            }
+            },
         ]
     }
 ]

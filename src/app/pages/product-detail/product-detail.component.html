@@ -1,23 +1,66 @@
-<p>{{product.title}}</p>
-<p>{{product.id}}</p>
-<img src="{{product.img_url}}" alt="">
-<p>{{product.desc}}</p>
-<p>{{product.price}}</p>
-<p>{{product.quantity}}</p>
-<p>Custom rating template provided via a variable. Shows fine-grained rating display</p>
+<div class="container">
+  <div class='card'
+      *ngIf='product'>
+    <div class='card-header'>
+      {{ product.title}}
+    </div>
 
-<!-- Start Template for star -->
-<ng-template #t let-fill="fill">
-  <span class="star" [class.full]="fill === 100">
-    <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
-  </span>
-</ng-template>
-<!-- End Template for star -->
+    <div class='card-body'>
+      <div class='row'>
+        <div class='col-md-8'>
+          <div class='row'>
+            <div class='col-md-4'>Name:</div>
+            <div class='col-md-8'>{{product.title}}</div>
+          </div>
+          <div class='row'>
+            <div class='col-md-4'>Code:</div>
+            <div class='col-md-8'>{{product.id}}</div>
+          </div>
+          <div class='row'>
+            <div class='col-md-4'>Description:</div>
+            <div class='col-md-8'>{{product.desc}}</div>
+          </div>
+          <div class='row'>
+            <div class='col-md-4'>Availability:</div>
+            <div class='col-md-8'>{{product.quantity}}</div>
+          </div>
+          <div class='row'>
+            <div class='col-md-4'>Price:</div>
+            <div class='col-md-8'>{{product.price| currency:"Rp ":'symbol':'1.0'}}</div>
+          </div>
+          <div class='row'>
+            <div class='col-md-4'>Rating : </div>
+            <div class='col-md-8'>
+              <!-- Start Template for star -->
+              <ng-template #t let-fill="fill">
+                <span class="star" [class.full]="fill === 100">
+                  <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                </span>
+              </ng-template>
+              <!-- End Template for star -->
 
-<ngb-rating [(rate)]="product.rating" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+              <ngb-rating [(rate)]="product.rating" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
 
-<!-- <hr>
-<pre>Rate: <b>{{currentRate}}</b></pre>
-<button class="btn btn-sm btn-outline-primary mr-2" (click)="currentRate = 1.35">1.35</button>
-<button class="btn btn-sm btn-outline-primary mr-2" (click)="currentRate = 4.72">4.72</button> -->
+            </div>
+          </div>
+        </div>
 
+        <div class='col-md-4'>
+          <img class='center-block img-responsive'
+              [style.width.px]='200'
+              [style.margin.px]='2'
+              [src]='product.img_url'
+              [title]='product.title'>
+        </div>
+      </div>
+    </div>
+
+    <div class='card-footer'>
+      <button class='btn btn-outline-secondary'
+              (click)='onBack()'
+              style='width:80px'>
+        <i class='fa fa-chevron-left'></i> Back
+      </button>
+    </div>
+  </div>
+</div>
