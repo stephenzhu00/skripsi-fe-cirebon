@@ -4,9 +4,18 @@
         <a [routerLink]="['/product/'+product.id]"><img src="{{product.img_url}}" alt=""></a>
         <div>
             <h6>{{product.title}}</h6>
+            <div>
+                <!-- Start Template for star -->
+                <ng-template #t let-fill="fill">
+                    <span class="star" [class.full]="fill === 100">
+                    <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                    </span>
+                </ng-template>
+                <!-- End Template for star -->
+                
+                <ngb-rating [(rate)]="product.rating" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+            </div>
             <a (click)="addToCart(product)" class="add-cart"><i class="fas fa-cart-plus"></i> Add To Cart</a>
-            <!-- TODO BUAT RATING  -->
-            <!-- <star-rating [value]="product.rating"  checkedcolor="gold" uncheckedcolor="gray" totalstars=5></star-rating> -->
             <h5>{{product.price | currency:"Rp ":'symbol':'1.0' }}</h5>
         </div>
     </div>

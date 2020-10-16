@@ -5,7 +5,7 @@ export const Products = [
         img_url:"assets/img/instagram-1.jpg",
         desc:"ini adalah jam terkeren",
         price:19999,
-        rating:4.5,
+        rating:4.2,
         quantity:20
     },
     {
@@ -14,7 +14,7 @@ export const Products = [
         img_url:"assets/img/instagram-2.jpg",
         desc:"ini adalah Sepatu terkeren",
         price:29999,
-        rating:4.5,
+        rating:2,
         quantity:20
     },
     {
@@ -23,7 +23,7 @@ export const Products = [
         img_url:"assets/img/instagram-3.jpg",
         desc:"ini adalah meja dan kursi terkeren",
         price:39999,
-        rating:4.5,
+        rating:2.5,
         quantity:20
     },
     {

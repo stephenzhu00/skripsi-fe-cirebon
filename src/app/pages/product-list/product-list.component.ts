@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { CartService } from '../../shared/services/cart.service';
 import { ProductService } from '../../shared/services/product.service';
 
@@ -9,7 +10,11 @@ import { ProductService } from '../../shared/services/product.service';
 })
 export class ProductListComponent implements OnInit {
   constructor(private cartService:CartService,
-              public productService:ProductService) { }
+              public productService:ProductService,
+              config: NgbRatingConfig) {
+    config.max = 5;
+    config.readonly = true;
+  }
 
   ngOnInit(): void {
   }

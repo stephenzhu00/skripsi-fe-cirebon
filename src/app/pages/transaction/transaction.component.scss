@@ -1,0 +1,18 @@
+// START CSS ACCORDION FOR TRANSACTION
+ 
+  ::ng-deep .accordion {
+    .card {
+      .card-header {
+        margin-bottom: 10px !important;
+        button {
+          padding: 1.2rem;  
+          span {
+            font-size: 1.2rem;
+          }
+        }
+      }
+      .card-body {
+        padding: 1rem;
+      }
+    }
+  }

@@ -4,3 +4,20 @@
 <p>{{product.desc}}</p>
 <p>{{product.price}}</p>
 <p>{{product.quantity}}</p>
+<p>Custom rating template provided via a variable. Shows fine-grained rating display</p>
+
+<!-- Start Template for star -->
+<ng-template #t let-fill="fill">
+  <span class="star" [class.full]="fill === 100">
+    <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+  </span>
+</ng-template>
+<!-- End Template for star -->
+
+<ngb-rating [(rate)]="product.rating" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+
+<!-- <hr>
+<pre>Rate: <b>{{currentRate}}</b></pre>
+<button class="btn btn-sm btn-outline-primary mr-2" (click)="currentRate = 1.35">1.35</button>
+<button class="btn btn-sm btn-outline-primary mr-2" (click)="currentRate = 4.72">4.72</button> -->
+
