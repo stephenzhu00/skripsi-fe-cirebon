@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from '../../shared/services/cart.service';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-cart',
@@ -7,21 +9,28 @@ import { CartService } from '../../shared/services/cart.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  // cart= [];
-  constructor(public cartService:CartService) { }
+  productInCart = [];
+  transactionList= [];
+  constructor(public cartService:CartService,
+              private router:Router,
+              private alertService:AlertService) { }
 
   ngOnInit(): void {
     this.cartService.cart = JSON.parse(localStorage.getItem('cart'));
   }
   deleteItem(product){
-    this.cartService.deleteProduct(product);
+    this.cartService.deleteProductFromCart(product);
   }
   calculateTotalPrice(){
     return this.cartService.calculateTotalPrice();
   }
   directToTransaction(){
   //  TODO Ngehit backend ??
-    this.cartService.createInvoice();
+    this.cartService.createNewTransaction().subscribe((data)=>{
+      this.productInCart.push(data);
+      this.router.navigate(['/transaction']);
+      this.alertService.success("Created Invoice");
+    });
   }
 
   decr(product){

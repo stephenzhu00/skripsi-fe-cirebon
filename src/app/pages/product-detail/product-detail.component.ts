@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../shared/services/product.service';
 import { CartService } from '../../shared/services/cart.service';
+import { InterfaceProduct } from '../../interfacePorduct';
 
 @Component({
   selector: 'app-product-detail',
@@ -11,15 +12,17 @@ import { CartService } from '../../shared/services/cart.service';
 })
 export class ProductDetailComponent implements OnInit {
   currentRate = 3.14;
-  product;
+  productDetail;
   constructor(private route:ActivatedRoute,
               private productService:ProductService,
               private cartService:CartService,
               private location:Location) { }
   ngOnInit(): void {
     this.route.paramMap.subscribe(params=>{
-      this.product = this.productService.getProduct(parseInt(params.get('id')));
-    })
+      this.productService.getProduct(parseInt(params.get('id'))).subscribe((data:InterfaceProduct)=>{
+        this.productDetail =data;
+      });
+    });
   }
   onBack(){
     this.location.back(); 

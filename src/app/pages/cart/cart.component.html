@@ -16,7 +16,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngIf="cartService.cart.length == 0 ">
+                                <tr *ngIf="!cartService.cart.length">
                                     <div>
                                         <!-- BAGUSIN NODATA  -->
                                         NO DATA
@@ -73,4 +73,3 @@
         </div>
     </div>
 </section>
-<!-- Shopping Cart Section End -->
