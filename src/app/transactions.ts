@@ -3,6 +3,7 @@ export const Transactions=[
         transaction_id:1,
         status:"waiting",
         total:49998,
+        created_date:"18 Aug 2020",
         items:[
             {
                 id:1,
@@ -28,6 +29,7 @@ export const Transactions=[
         transaction_id:2,
         status:"delivered",
         total:129995,
+        created_date:"19 Aug 2020",
         items:[
             {
                 id:1,

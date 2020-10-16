@@ -1,4 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+.border-right{
+    border-right: 1px #333;
+  }
+  
+  .border-left{
+    border-left: 1px #3333;
+  }
+  
+  .price-color{
+    color: #FA591D;
+  }
+  
+  .title-color{
+    color: #42B549;
+  }
+  
 .ng-valid[required], .ng-valid.required  {
     border-left: 5px solid #42A948; /* green */
 }

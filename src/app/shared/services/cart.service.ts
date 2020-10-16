@@ -13,14 +13,15 @@ export class CartService{
               private router:Router) { }
   addToCart(product){
     var index = this.cart.findIndex(item => item.id === product.id);
+    let temp = product;
     if (index > -1) {
       this.cart[index].quantity = this.cart[index].quantity + 1;
-      console.log(this.cart[index].quantity);
     } else {
-      product.quantity = 1;
-      this.cart.push(product);
+      temp.quantity = 1;
+      // product.quantity = 1;
+      this.cart.push(temp);
     }
-    this.alertService.success(product.title+" added to cart");
+    this.alertService.success(temp.title+" added to cart");
     localStorage.setItem('cart', JSON.stringify(this.cart));
   }
 
@@ -55,7 +56,6 @@ export class CartService{
   }
   calculateTotalPrice():number{
     let totalPrice= 0 ;
-    console.log(this.cart.length);
     for(let i = 0 ; i < this.cart.length ; i++){
       totalPrice+= this.cart[i].price * this.cart[i].quantity;
     }

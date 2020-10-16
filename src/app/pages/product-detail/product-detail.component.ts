@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../shared/services/product.service';
+import { CartService } from '../../shared/services/cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -13,14 +14,17 @@ export class ProductDetailComponent implements OnInit {
   product;
   constructor(private route:ActivatedRoute,
               private productService:ProductService,
+              private cartService:CartService,
               private location:Location) { }
   ngOnInit(): void {
     this.route.paramMap.subscribe(params=>{
       this.product = this.productService.getProduct(parseInt(params.get('id')));
-      this.product.ratingInt = parseInt(this.product.rating);
     })
   }
   onBack(){
     this.location.back(); 
+  }
+  addToCart(product){
+    this.cartService.addToCart(product);
   }
 }

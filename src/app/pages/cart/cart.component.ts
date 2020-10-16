@@ -25,7 +25,6 @@ export class CartComponent implements OnInit {
   }
 
   decr(product){
-    console.log("decr");
     this.cartService.decrementQty(product);
   }
   incr(product){

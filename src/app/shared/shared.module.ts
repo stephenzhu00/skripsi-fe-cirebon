@@ -8,9 +8,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { AlertModule } from 'ngx-alerts';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { FooterComponent } from './layouts/footer/footer.component';
 
 @NgModule({
-  declarations: [NavbarComponent, ColumnOneComponent],
+  declarations: [NavbarComponent, ColumnOneComponent, FooterComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -22,7 +23,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     AlertModule.forRoot({maxMessages: 5, timeout: 5000, positionX: 'right', positionY: 'top'})
   ],
   exports:[
-    ColumnOneComponent
+    ColumnOneComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }

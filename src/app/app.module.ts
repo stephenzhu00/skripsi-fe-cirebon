@@ -14,6 +14,8 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 import { TransactionComponent } from './pages/transaction/transaction.component';
 import { RatingModule } from 'ng-starrating';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductRatingComponent } from './pages/product-rating/product-rating.component';
+import { RecommendationComponent } from './pages/recommendation/recommendation.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CartComponent,
     ProductDetailComponent,
     TransactionComponent,
+    ProductRatingComponent,
+    RecommendationComponent,
   ],
   imports: [
     BrowserModule,
