@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { InterfaceProduct } from '../../interfacePorduct';
+import { HttpClient } from '@angular/common/http';
+import { ProductService } from '../../shared/services/product.service';
 
 @Component({
   selector: 'app-recommendation',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recommendation.component.scss']
 })
 export class RecommendationComponent implements OnInit {
-
-  constructor() { }
+  @Input() clickedProduct:InterfaceProduct;
+  listRecommendation:any;
+  constructor(private http:HttpClient,private productService:ProductService) { }
 
   ngOnInit(): void {
+    this.productService.getRecommendation(this.clickedProduct.id).subscribe((data)=>{
+      this.listRecommendation = data;
+      // this.listRecommendation = this.listRecommendation.slice(0,4);
+    });
   }
 
 }

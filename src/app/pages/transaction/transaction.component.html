@@ -5,6 +5,9 @@
 </ng-template>
 
 <div class="container">
+  <div *ngIf="transactionList.length == 0 ">
+    No transaction
+  </div>
   <div class="row">
     <div class="col-lg-2"></div>
     <div class="col-lg-8">

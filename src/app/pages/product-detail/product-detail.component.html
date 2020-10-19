@@ -4,7 +4,7 @@
     <div class='card-header'>
       {{ productDetail.title}}
     </div>
-
+<!-- TODO CSS PRODUCT DETAIL -->
     <div class='card-body'>
       <div class='row'>
         <div class='col-md-8'>
@@ -67,4 +67,4 @@
 </div>
 
 <!-- TODO RECOMMENDATION -->
-<app-recommendation></app-recommendation>
+<app-recommendation [clickedProduct]="productDetail"></app-recommendation>

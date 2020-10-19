@@ -18,10 +18,12 @@ export class ProductDetailComponent implements OnInit {
               private cartService:CartService,
               private location:Location) { }
   ngOnInit(): void {
+    // TODO DISCUSS WITH BACKEND OR NOT
     this.route.paramMap.subscribe(params=>{
-      this.productService.getProduct(parseInt(params.get('id'))).subscribe((data:InterfaceProduct)=>{
-        this.productDetail =data;
-      });
+      this.productDetail = this.productService.getProductWithoutBackEnd(parseInt(params.get('id')));
+      // this.productService.getProduct(parseInt(params.get('id'))).subscribe((data:InterfaceProduct)=>{
+      //   this.productDetail =data;
+      // });
     });
   }
   onBack(){

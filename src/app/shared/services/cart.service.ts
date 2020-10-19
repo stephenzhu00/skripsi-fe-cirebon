@@ -87,7 +87,7 @@ export class CartService{
       return totalPrice;
     }
   }
-  
+  // UPDATE QTY IN PRODUCT SERVICE
   decrQtyListProduct(productId,qtyToUpdate){
     let index:number = this.productService.listProduct.findIndex(item=>item.id == productId);
     this.productService.listProduct[index].quantity-=qtyToUpdate;
