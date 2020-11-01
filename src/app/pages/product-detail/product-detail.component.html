@@ -7,7 +7,7 @@
 <!-- TODO CSS PRODUCT DETAIL -->
     <div class='card-body'>
       <div class='row'>
-        <div class='col-md-8'>
+        <div class='col-md-7'>
           <div class='row'>
             <div class='col-md-4'>Name:</div>
             <div class='col-md-8'>{{productDetail.title}}</div>
@@ -45,13 +45,13 @@
           </div>
           <a (click)="addToCart(productDetail)" class="add-cart"><i class="fas fa-cart-plus"></i> Add To Cart</a>
         </div>
-
-        <div class='col-md-4'>
-          <img class='center-block img-responsive'
+        <div class='col-md-5'>
+          <app-product-gallery></app-product-gallery>
+          <!-- <img class='center-block img-responsive'
               [style.width.px]='200'
               [style.margin.px]='2'
               [src]='productDetail.img_url'
-              [title]='productDetail.title'>
+              [title]='productDetail.title'> -->
         </div>
       </div>
     </div>

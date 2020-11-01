@@ -16,6 +16,8 @@ import { RatingModule } from 'ng-starrating';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductRatingComponent } from './pages/product-rating/product-rating.component';
 import { RecommendationComponent } from './pages/recommendation/recommendation.component';
+import { NgxGalleryModule } from 'ngx-gallery-9';
+import { ProductGalleryComponent } from './pages/product-gallery/product-gallery.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { RecommendationComponent } from './pages/recommendation/recommendation.c
     TransactionComponent,
     ProductRatingComponent,
     RecommendationComponent,
+    ProductGalleryComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { RecommendationComponent } from './pages/recommendation/recommendation.c
     SharedModule,
     AuthModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    NgxGalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent]
