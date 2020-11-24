@@ -7,9 +7,9 @@ import { JwtHelperService } from "@auth0/angular-jwt";
   providedIn: 'root'
 })
 export class AuthService {
-  authUrl = 'http://localhost:8085/';
-  // authUrl = 'http://127.0.0.1:5000';
-  confirmEmailUrl="test.com";
+  // authUrl = 'http://localhost:8085/';
+  authUrl = 'https://skripsi-backend-final.herokuapp.com';
+  // confirmEmailUrl="test.com";
   helper = new JwtHelperService();
   // TODO DELETE TOKEN
   // TODO VIDEO 42 MAKE BOOTSWATCH ? 

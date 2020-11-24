@@ -3,11 +3,11 @@
         <h3>Register</h3>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="name" formControlName="name" class="form-control" id="name" placeholder="Enter name">
+                <label for="username">Username</label>
+                <input type="text" formControlName="username" class="form-control" id="username" placeholder="Enter username">
                 <!-- ALERTS -->
                 <div *ngIf="formSubmitted && f.name.errors" class="invalid-feedback d-block" >
-                  <div *ngIf="f.name.errors.required">*Name is required</div>
+                  <div *ngIf="f.username.errors.required">*username is required</div>
                 </div>
               </div>
             <div class="form-group">
@@ -19,9 +19,16 @@
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" formControlName="password" class="form-control" id="password" placeholder="Password">
+              <input type="password" formControlName="password" class="form-control" id="password" placeholder="Enter Password">
               <div *ngIf="formSubmitted && f.password.errors" class="invalid-feedback d-block" >
                 <div *ngIf="f.password.errors.required">*Password is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" formControlName="address" class="form-control" id="address" placeholder="Enter address">
+              <div *ngIf="formSubmitted && f.address.errors" class="invalid-feedback d-block" >
+                <div *ngIf="f.address.errors.required">*address is required</div>
               </div>
             </div>
             <button type="submit" class="btn btn-primary">Register <i class="fas fa-sign-in-alt"></i></button>

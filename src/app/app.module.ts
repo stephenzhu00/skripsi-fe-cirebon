@@ -21,6 +21,7 @@ import { ProductGalleryComponent } from './pages/product-gallery/product-gallery
 import { AdminModule } from './admin/admin.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule} from '@angular/fire/storage';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAdPBfWvCzJ4F2mQfeGqbXzq2IgbaMwpj4",
@@ -56,7 +57,8 @@ const firebaseConfig = {
     NgxGalleryModule,
     AdminModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

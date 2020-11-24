@@ -11,7 +11,7 @@ export class ProductService {
   // listProduct:any;
   productDetail;
   // private urlProduct ="http://localhost:8085/product";
-  private urlProduct='https://skripsi-backend-final.herokuapp.com/products';
+  private urlProduct='https://skripsi-backend-final.herokuapp.com/products/rating/3';
   constructor(private http:HttpClient) { 
     this.getAllProduct();
   }
@@ -23,6 +23,12 @@ export class ProductService {
       this.listProduct = data.product;
     });
   }
+
+  filterProduct(category , rating ){  
+    const c = category;
+    const r = rating ;
+  }
+
   refreshListProduct(){
     this.http.get(this.urlProduct).toPromise().then((res:InterfaceListProduct)=>this.listProduct= res.product as InterfaceProduct[]);
   }

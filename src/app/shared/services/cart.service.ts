@@ -30,6 +30,7 @@ export class CartService{
   }
   addToCart(item:InterfaceProduct){
     const newItem:InterfaceProduct={
+      productCategory: item.productCategory,
       productId: item.productId,
       productTitle:item.productTitle,
       productDesc:item.productDesc,

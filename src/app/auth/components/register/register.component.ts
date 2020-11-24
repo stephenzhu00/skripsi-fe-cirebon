@@ -22,9 +22,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.formSubmitted = false;
     this.form = this.formBuilder.group({
-      name: ['', Validators.required],
+      username: ['', Validators.required],
       email: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      address:['',Validators.required]
     });
   }
   // tslint:disable-next-line: typedef
