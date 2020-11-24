@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 import { CartService } from '../../shared/services/cart.service';
 import { ProductService } from '../../shared/services/product.service';
-import { InterfaceProduct } from '../../interfacePorduct';
+import { InterfaceListProduct, InterfaceProduct } from '../../interfacePorduct';
 
 @Component({
   selector: 'app-product-list',
@@ -10,6 +10,7 @@ import { InterfaceProduct } from '../../interfacePorduct';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
+  listProduct;
   categorySelected = 'all';
   ratingSelected = 'all';
 
@@ -20,6 +21,9 @@ export class ProductListComponent implements OnInit {
     config.readonly = true;
   }
   ngOnInit(): void {
+    this.productService.getAllProductObservable().subscribe((data:InterfaceListProduct)=>{
+      this.listProduct = data.product;
+    });
     this.categorySelected='all';
     console.log("mulai");
   }
@@ -30,20 +34,16 @@ export class ProductListComponent implements OnInit {
 
   categoryChange(category){
     this.categorySelected = category.target.id;
-    this.productService.filterProduct(this.categorySelected,this.ratingSelected);
   }
 
   ratingChange(rating){
     this.ratingSelected = rating.target.id;
-    this.productService.filterProduct(this.categorySelected,this.ratingSelected);
   }
   searchProduct(queryInput){
     console.log(queryInput);
-    var test = this.productService.listProduct.filter(function(item){
-      // console.log(item.productTitle);
-      // console.log(item.productTitle.includes(queryInput));
+    this.listProduct = this.productService.listProduct.filter(function(item){
       return item.productTitle.toLowerCase().includes(queryInput.toLowerCase());
     });
-    console.log(test);
+    console.log(this.listProduct);
   }
 }

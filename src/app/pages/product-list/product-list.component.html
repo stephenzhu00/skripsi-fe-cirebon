@@ -61,7 +61,7 @@
     </div>
     <div class="col-sm-9">
         <div class="row">
-            <div *ngFor="let product of productService.listProduct" class="col-md-4">
+            <div *ngFor="let product of listProduct" class="col-md-4">
                 <a [routerLink]="['/product/'+product.productId]">
                     <!-- <img class="product-image" src="{{product.productImg}}" alt=""> -->
                 </a>

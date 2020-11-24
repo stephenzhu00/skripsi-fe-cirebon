@@ -24,6 +24,10 @@ export class ProductService {
     });
   }
 
+  getAllProductObservable(){
+    return this.http.get(this.urlProduct);
+  }
+
   filterProduct(category , rating ){  
     const c = category;
     const r = rating ;
