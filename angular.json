@@ -33,7 +33,6 @@
               "./node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",
               "./node_modules/@fortawesome/fontawesome-free/scss/brands.scss",
               "./node_modules/@fortawesome/fontawesome-free/scss/solid.scss"
-              
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
@@ -129,6 +128,10 @@
               "devServerTarget": "cirebon:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

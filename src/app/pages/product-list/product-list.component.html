@@ -8,13 +8,13 @@
 
 <div class="row">
     <div *ngFor="let product of productService.listProduct" class="col-md-4">
-        <a [routerLink]="['/product/'+product.id]"><img src="{{product.img_url}}" alt=""></a>
+        <a [routerLink]="['/product/'+product.productId]"><img class="product-image" src="{{product.productImg}}" alt=""></a>
         <div>
-            <h6 class="mb-0">{{product.title}}</h6>
-            <p class="mb-0">{{product.price | currency:"Rp ":'symbol':'1.0' }}</p>
+            <h6 class="mb-0">{{product.productTitle}}</h6>
+            <p class="mb-0">{{product.productPrice | currency:"Rp ":'symbol':'1.0' }}</p>
             <a (click)="addToCart(product)" class="add-cart"><i class="fas fa-cart-plus"></i> Add To Cart</a>
             <div>                
-                <ngb-rating [(rate)]="product.rating" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+                <ngb-rating [(rate)]="product.productRating" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
             </div>
         </div>
     </div>

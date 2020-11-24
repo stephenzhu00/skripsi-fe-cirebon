@@ -8,18 +8,18 @@
 
 <div class="row">
     <div class="col-sm-1">
-        <img class="rounded" src="{{product.img_url}}" alt="" height="60" width="60" style="margin-left: 8px;">
+        <img class="rounded" src="{{product.productImg}}" alt="" height="60" width="60" style="margin-left: 8px;">
     </div>
     <div class="col-sm-5 border-right">
         <div class="col">
-            <div class="row-sm-6"><a [routerLink]="['/product/'+product.id]" ><h6 class="title-color">{{product.title}}</h6></a></div>
+            <div class="row-sm-6"><a [routerLink]="['/product/'+product.productId]" ><h6 class="title-color">{{product.productTitle}}</h6></a></div>
                 <div class="row-sm-6">
-                    <span class="price-color">{{product.price | currency:"Rp ":'symbol':'1.0'}} </span>{{product.quantity}} Produk
+                    <span class="price-color">{{product.productPrice | currency:"Rp ":'symbol':'1.0'}} </span>{{product.productQuantity}} Produk
                 </div>
         </div>
     </div>
     <div class="col-sm-2 my-auto">
-        <h6 class="price-color">{{product.price | currency:"Rp ":'symbol':'1.0'}}</h6>
+        <h6 class="price-color">{{product.productPrice | currency:"Rp ":'symbol':'1.0'}}</h6>
     </div>    
     <div class="col-sm-4 border-left text-center">
         <div><ngb-rating [(rate)]="rating" [starTemplate]="t" [readonly]="submitted" [max]="5"></ngb-rating></div>

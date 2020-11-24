@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../shared/services/product.service';
 import { CartService } from '../../shared/services/cart.service';
-import { InterfaceProduct } from '../../interfacePorduct';
+import { InterfaceProduct, InterfaceListProduct } from '../../interfacePorduct';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,18 +12,16 @@ import { InterfaceProduct } from '../../interfacePorduct';
 })
 export class ProductDetailComponent implements OnInit {
   currentRate = 3.14;
-  productDetail;
+  productDetail:any;
   constructor(private route:ActivatedRoute,
               private productService:ProductService,
               private cartService:CartService,
               private location:Location) { }
   ngOnInit(): void {
-    // TODO DISCUSS WITH BACKEND OR NOT
     this.route.paramMap.subscribe(params=>{
-      this.productDetail = this.productService.getProductWithoutBackEnd(parseInt(params.get('id')));
-      // this.productService.getProduct(parseInt(params.get('id'))).subscribe((data:InterfaceProduct)=>{
-      //   this.productDetail =data;
-      // });
+      this.productService.getProduct(parseInt(params.get('id'))).subscribe((data:InterfaceListProduct)=>{
+        this.productDetail =data.product;
+      });
     });
   }
   onBack(){

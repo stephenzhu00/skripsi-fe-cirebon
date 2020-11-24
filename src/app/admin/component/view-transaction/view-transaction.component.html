@@ -1,0 +1,68 @@
+<ng-template #t let-fill="fill">
+    <span class="star" [class.full]="fill === 100">
+      <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+    </span>
+  </ng-template>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+        <div *ngFor="let transaction of transactionList" class="card shadow-sm" style="min-height: 200px;margin-top: 10px;">
+          <div class="col">
+            <div class="row-sm-2 pt-2">
+              <i class="fas fa-calendar-day"></i> {{transaction.created_date}}
+              <button class="btn btn-primary float-right" (click)="processTransaction(transaction)">Process</button>
+              <button class="btn btn-danger float-right" (click)="cancelTransaction(transaction)">Cancel</button>
+              <hr>
+            </div>
+            <div class="row-sm-5">
+              <div class="row">
+                <div class="col-md-4 border-right">
+                  <div class="col">
+                    <div class="row-sm-6"><h6 class="title-color"> Transaction ID</h6></div>
+                    <div class="row-sm-6">{{transaction.transaction_id}}</div>
+                  </div>
+                </div>
+                <div class="col md-4 border-right">
+                  <div class="col">
+                    <div class="row-sm-6">Status <i [ngClass]="(transaction.status == 'waiting')?'fas fa-clock':(transaction.status == 'delivered')?'fas fa-check':'fas fa-truck'"></i> </div>
+                    <div class="row-sm-6 font-weight-bold">{{transaction.status}}</div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="col">
+                    <div class="row-sm-6">Total Belanja</div>
+                    <div class="row-sm-6 price-color font-weight-bold">{{transaction.total | currency:"Rp ":'symbol':'1.0'}}</div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+            </div>
+            <div class="row-sm-5">
+              <div *ngFor="let product of transaction.items" style="margin-bottom: 8px;">
+                <!-- <app-product-rating [product]="product" [transaction]="transaction"></app-product-rating> -->
+                <div class="row">
+                    <div class="col-sm-1">
+                        <img class="rounded" src="{{product.productImg}}" alt="" height="60" width="60" style="margin-left: 8px;">
+                    </div>
+                    <div class="col-sm-9 border-right">
+                        <div class="col">
+                            <div class="row-sm-6"><a [routerLink]="['/product/'+product.productId]" ><h6 class="title-color">{{product.productTitle}}</h6></a></div>
+                                <div class="row-sm-6">
+                                    <span class="price-color">{{product.productPrice | currency:"Rp ":'symbol':'1.0'}} </span>{{product.productQuantity}} Produk
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 my-auto">
+                        <h6 class="price-color">{{product.productPrice | currency:"Rp ":'symbol':'1.0'}}</h6>
+                    </div>    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="col-lg-2"></div>
+     </div>
+    </div>
+  </div>

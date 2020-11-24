@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../../shared/services/cart.service';
 import { AlertService } from 'ngx-alerts';
+import { InterfaceProduct } from '../../interfacePorduct';
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +10,7 @@ import { AlertService } from 'ngx-alerts';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  productInCart = [];
+  productInCart:InterfaceProduct[];
   transactionList= [];
   constructor(public cartService:CartService,
               private router:Router,
@@ -19,6 +20,7 @@ export class CartComponent implements OnInit {
     this.cartService.cart = JSON.parse(localStorage.getItem('cart'));
   }
   deleteItem(product){
+    console.log("delete item");
     this.cartService.deleteProductFromCart(product);
   }
   calculateTotalPrice(){
@@ -27,7 +29,7 @@ export class CartComponent implements OnInit {
   directToTransaction(){
   //  TODO Ngehit backend ??
     this.cartService.createNewTransaction().subscribe((data)=>{
-      this.productInCart.push(data);
+      // this.productInCart.push(data);
       this.router.navigate(['/transaction']);
       this.alertService.success("Created Invoice");
     });

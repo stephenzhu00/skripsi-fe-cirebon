@@ -8,6 +8,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 })
 export class AuthService {
   authUrl = 'http://localhost:8085/';
+  // authUrl = 'http://127.0.0.1:5000';
   confirmEmailUrl="test.com";
   helper = new JwtHelperService();
   // TODO DELETE TOKEN

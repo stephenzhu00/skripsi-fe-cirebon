@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="jumbotron">
+        <h3 class="text-center">Upload Product</h3>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="productTitle">Product Name</label>
+              <input type="productTitle" formControlName="productTitle" class="form-control" id="productTitle" placeholder="Enter productTitle">
+              <!-- ALERTS -->
+              <div *ngIf="formSubmitted && f.productTitle.errors" class="invalid-feedback d-block" >
+                <div *ngIf="f.productTitle.errors.required">*title is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="productDesc">Product Description</label>
+              <input type="productDesc" formControlName="productDesc" class="form-control" id="productDesc" placeholder="productDesc">
+              <!-- ALERTS -->
+              <div *ngIf="formSubmitted && f.productDesc.errors" class="invalid-feedback d-block" >
+                <div *ngIf="f.productDesc.errors.required">*productDesc is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="productPrice">Product Price</label>
+                <input type="number" formControlName="productPrice" class="form-control" id="productPrice" placeholder="Enter productPrice">
+                <!-- ALERTS -->
+                <div *ngIf="formSubmitted && f.productPrice.errors" class="invalid-feedback d-block" >
+                  <div *ngIf="f.productPrice.errors.required">*productPrice is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="productQuantity">Product Quantity</label>
+                <input type="number" formControlName="productQuantity" class="form-control" id="productQuantity" placeholder="Enter productQuantity">
+                <!-- ALERTS -->
+                <div *ngIf="formSubmitted && f.productQuantity.errors" class="invalid-feedback d-block" >
+                  <div *ngIf="f.productQuantity.errors.required">*productQuantity is required</div>
+                </div>
+              </div>
+              <div>
+                <img [src]="imgSrc" width="350px" height="250px" (click)="fileUploader.click()">
+              </div>
+              <div class="form-group">
+                <label for="productImg">Upload Image</label>
+                <input type="file" (change)="showPreview($event)" formControlName="productImg" class="form-control-file" id="productImg" #fileUploader>
+                <!-- ALERTS -->
+                <div *ngIf="formSubmitted && f.productImg.errors" class="invalid-feedback d-block" >
+                    <div *ngIf="f.productImg.errors.required">*productImg is required</div>
+                  </div>
+              </div>
+
+            <button type="submit" class="btn btn-primary">Update <i class="fab fa-telegram-plane"></i></button>
+          </form>
+    </div>
+</div>

@@ -2,7 +2,7 @@
   <div class='card'
       *ngIf='productDetail'>
     <div class='card-header'>
-      {{ productDetail.title}}
+      {{ productDetail.productTitle}}
     </div>
 <!-- TODO CSS PRODUCT DETAIL -->
     <div class='card-body'>
@@ -10,23 +10,23 @@
         <div class='col-md-7'>
           <div class='row'>
             <div class='col-md-4'>Name:</div>
-            <div class='col-md-8'>{{productDetail.title}}</div>
+            <div class='col-md-8'>{{productDetail.productTitle}}</div>
           </div>
           <div class='row'>
             <div class='col-md-4'>Code:</div>
-            <div class='col-md-8'>{{productDetail.id}}</div>
+            <div class='col-md-8'>{{productDetail.productId}}</div>
           </div>
           <div class='row'>
             <div class='col-md-4'>Description:</div>
-            <div class='col-md-8'>{{productDetail.desc}}</div>
+            <div class='col-md-8'>{{productDetail.productDesc}}</div>
           </div>
           <div class='row'>
             <div class='col-md-4'>Availability:</div>
-            <div class='col-md-8'>{{productDetail.quantity}}</div>
+            <div class='col-md-8'>{{productDetail.productQuantity}}</div>
           </div>
           <div class='row'>
             <div class='col-md-4'>Price:</div>
-            <div class='col-md-8'>{{productDetail.price| currency:"Rp ":'symbol':'1.0'}}</div>
+            <div class='col-md-8'>{{productDetail.productPrice| currency:"Rp ":'symbol':'1.0'}}</div>
           </div>
           <div class='row'>
             <div class='col-md-4'>Rating : </div>
@@ -39,19 +39,14 @@
               </ng-template>
               <!-- End Template for star -->
 
-              <ngb-rating [(rate)]="productDetail.rating" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+              <ngb-rating [(rate)]="productDetail.productRating" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
 
             </div>
           </div>
           <a (click)="addToCart(productDetail)" class="add-cart"><i class="fas fa-cart-plus"></i> Add To Cart</a>
         </div>
         <div class='col-md-5'>
-          <app-product-gallery></app-product-gallery>
-          <!-- <img class='center-block img-responsive'
-              [style.width.px]='200'
-              [style.margin.px]='2'
-              [src]='productDetail.img_url'
-              [title]='productDetail.title'> -->
+          <app-product-gallery [productsImage]="productDetail.productImg"></app-product-gallery>
         </div>
       </div>
     </div>
@@ -67,4 +62,4 @@
 </div>
 
 <!-- TODO RECOMMENDATION -->
-<app-recommendation [clickedProduct]="productDetail"></app-recommendation>
+<!-- <app-recommendation [clickedProduct]="productDetail"></app-recommendation> -->

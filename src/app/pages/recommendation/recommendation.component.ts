@@ -14,7 +14,7 @@ export class RecommendationComponent implements OnInit {
   constructor(private http:HttpClient,private productService:ProductService) { }
 
   ngOnInit(): void {
-    this.productService.getRecommendation(this.clickedProduct.id).subscribe((data)=>{
+    this.productService.getRecommendation(this.clickedProduct.productId).subscribe((data)=>{
       this.listRecommendation = data;
       // this.listRecommendation = this.listRecommendation.slice(0,4);
     });

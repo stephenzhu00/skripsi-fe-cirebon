@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery-9';
 
 @Component({
@@ -9,6 +9,7 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
 export class ProductGalleryComponent implements  OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
+  @Input() productsImage;
 
   ngOnInit(): void {
 
@@ -16,16 +17,22 @@ export class ProductGalleryComponent implements  OnInit {
           {
               width: '300px',
               height: '300px',
-              thumbnailsColumns: 3,
-              arrowPrevIcon:'fa fa-chevron-left',
-              arrowNextIcon:'fa fa-chevron-right',
+              thumbnails: false,
+              imageArrows: false,
               imageDescription:true,
               imageAnimation: NgxGalleryAnimation.Slide,
+              previewDownload: true,
               previewCloseOnEsc:true,
               previewKeyboardNavigation:true,
-              previewInfinityMove:true,
               previewZoom:true,
-              previewRotate:true
+              previewRotate:true,
+              previewArrows:false,
+              previewFullscreen:true,
+              previewCloseOnClick:true
+            //   thumbnailsColumns: 3,
+            //   arrowPrevIcon:'fa fa-chevron-left',
+            //   arrowNextIcon:'fa fa-chevron-right',
+            // previewInfinityMove:true,
 
           },
           // max-width 400, cannot preview
@@ -47,19 +54,9 @@ export class ProductGalleryComponent implements  OnInit {
 
       this.galleryImages = [
           {
-              small: 'assets/img/instagram-1.jpg',
-              medium: 'assets/img/instagram-1.jpg',
-              big: 'assets/img/instagram-1.jpg'
-          },
-          {
-              small: 'assets/img/instagram-2.jpg',
-              medium: 'assets/img/instagram-2.jpg',
-              big: 'assets/img/instagram-2.jpg'
-          },
-          {
-              small: 'assets/img/panda.png',
-              medium: 'assets/img/panda.png',
-              big: 'assets/img/panda.png'
+              small: this.productsImage,
+              medium: this.productsImage,
+              big: this.productsImage
           }
       ];
   }

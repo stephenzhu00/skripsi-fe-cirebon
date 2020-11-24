@@ -1,0 +1,35 @@
+// START CSS ACCORDION FOR TRANSACTION
+ 
+.border-right{
+    border-right: 1px #333;
+  }
+  
+  .border-left{
+    border-left: 1px #3333;
+  }
+  
+  .price-color{
+    color: #FA591D;
+  }
+  
+  .title-color{
+    color: #42B549;
+  }
+  
+    ::ng-deep .accordion {
+      .card {
+        .card-header {
+          margin-bottom: 3px !important;
+          button {
+            padding: 3px;  
+            span {
+              font-size: 1.2rem;
+            }
+          }
+        }
+        .card-body {
+          padding: 1rem;
+        }
+      }
+    }
+  
