@@ -4,6 +4,7 @@
         <h3>Cirebon Website</h3>
         <p>Find the best art in here</p>
         <a 
+            *ngIf="!authService.loggedIn()"
             [routerLink]="['auth/register']"
            routerLinkActive="router-link-active"
            class="btn btn-info">Create New Account <i class="fas fa-user-plus"></i></a>
@@ -11,6 +12,7 @@
     <div class="col-md-6 mt-4 home-image-wrapper">
     </div>
 </div>
+
 <div class="container">
     <app-product-list> </app-product-list>
 </div>

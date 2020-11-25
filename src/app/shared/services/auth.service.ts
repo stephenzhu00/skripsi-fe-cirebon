@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +8,6 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 export class AuthService {
   authUrl = 'http://127.0.0.1:5000/';
   // authUrl = 'https://skripsi-backend-final.herokuapp.com';
-  // confirmEmailUrl="test.com";
-  helper = new JwtHelperService();
-  // TODO DELETE TOKEN
   // TODO VIDEO 42 MAKE BOOTSWATCH ? 
   decodedToken:any;
 
@@ -21,25 +17,20 @@ export class AuthService {
   login(model:any){
     return this.http.post(this.authUrl+'login',model).pipe(
       map((response:any)=>{
-        const user = response;
-        if(user.result == "MANTAP"){
-          localStorage.setItem('token', user.token);
-          this.decodedToken = this.helper.decodeToken(user.token);
+        const user = response.users;
+        if(user){
+          localStorage.setItem('token', JSON.stringify(user));
+          this.decodedToken = user;
         }
       })
     );
   }
   register(model:any){
-    // COMMENT FOR PASSING HEADER TO BACK END
-    // let headers = new HttpHeaders({
-    //   'confirmEmailUrl':this.confirmEmailUrl
-    // });
-    // let options = {headers:headers};
-    return this.http.post(this.authUrl+'register',model);
+    return this.http.post(this.authUrl+'register',model, { responseType: 'text' });
   }
 
   loggedIn(){
-    const token = localStorage.getItem('token');
-    return !this.helper.isTokenExpired(token);
+    var token = JSON.parse(localStorage.getItem('token'));
+    return token;
   }
 }

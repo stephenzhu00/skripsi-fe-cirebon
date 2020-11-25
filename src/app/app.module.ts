@@ -22,6 +22,7 @@ import { AdminModule } from './admin/admin.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule} from '@angular/fire/storage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAdPBfWvCzJ4F2mQfeGqbXzq2IgbaMwpj4",
@@ -58,7 +59,8 @@ const firebaseConfig = {
     AdminModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireStorageModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

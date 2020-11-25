@@ -13,6 +13,10 @@ export class AuthGuard implements CanActivate{
             this.router.navigate(['auth/login']);
             return false;
         }
+        if(route.data.id && route.data.id != this.authService.decodedToken.id){
+            this.router.navigate(['/']);
+            return false;
+        }
         return true;
     }
 }

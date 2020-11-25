@@ -50,10 +50,12 @@ export class RegisterComponent implements OnInit {
       error: err => {
         this.progressBar.setError();
         this.progressBar.completeLoading();
+        console.log(err);
         console.error('Error because ' + err);
         this.alertService.danger('Fail Register');
       },
     };
+    console.log(this.form.value);
     this.authService.register(this.form.value).subscribe(myObserver);
   }
 

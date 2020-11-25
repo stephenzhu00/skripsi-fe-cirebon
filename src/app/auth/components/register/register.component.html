@@ -6,7 +6,7 @@
                 <label for="username">Username</label>
                 <input type="text" formControlName="username" class="form-control" id="username" placeholder="Enter username">
                 <!-- ALERTS -->
-                <div *ngIf="formSubmitted && f.name.errors" class="invalid-feedback d-block" >
+                <div *ngIf="formSubmitted && f.username.errors" class="invalid-feedback d-block" >
                   <div *ngIf="f.username.errors.required">*username is required</div>
                 </div>
               </div>

@@ -9,15 +9,15 @@
 <div style="margin-top: 5px; margin-bottom: 10px;">
     <div class="input-group md-form form-sm form-2 pl-0">
         <input #searchBox class="form-control my-0 py-1 amber-border" type="text" placeholder="Search Item" aria-label="Search" (keyup.enter)="searchProduct(searchBox.value)">
-        <div class="input-group-append">
+        <div class="input-group-append" (click)="searchProduct(searchBox.value)">
           <span #searchIcon class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
-              aria-hidden="true" (click)="searchProduct(searchBox.value)"></i></span>
+              aria-hidden="true"></i></span>
         </div>
       </div>
 </div>
-<div *ngIf="listProduct">
+<!-- <div *ngIf="listProduct">
     {{listProduct.length}}
-</div>
+</div> -->
 <div class="row">
     <div class="col-sm-3 jumbotron">
         <div>
@@ -38,8 +38,9 @@
                 <input type="radio" id="batik" name="categoryRadio" class="custom-control-input" [checked]="categorySelected == 'batik'" (change)="categoryChange($event)">
                 <label class="custom-control-label" for="batik">Batik</label>
             </div>
-            {{categorySelected}}
+            <!-- {{categorySelected}} -->
         </div>
+        <hr>
         <div>
             <h6>Rating </h6> 
             <div class="custom-control custom-radio">
@@ -58,17 +59,25 @@
                 <input type="radio" id="5" name="ratingRadio" class="custom-control-input" [checked]="ratingSelected == '5'" (change)="ratingChange($event)">
                 <label class="custom-control-label" for="5"><i class="fas fa-star"></i> 5 Keatas</label>
             </div>
-            {{ratingSelected}}
+            <!-- {{ratingSelected}} -->
         </div>
     </div>
     <div class="col-sm-9">
+        <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-7">
+                <mat-spinner *ngIf="isLoading" class="text-center"></mat-spinner>
+            </div>
+        </div>
         <div class="row">
             <div *ngFor="let product of listProduct" class="col-md-4">
                 <a [routerLink]="['/product/'+product.productId]">
                     <!-- <img class="product-image" src="{{product.productImg}}" alt=""> -->
                 </a>
                 <div>
-                    <h6 class="mb-0">{{product.productTitle}}</h6>
+                    <a [routerLink]="['/product/'+product.productId]">
+                        <h6 class="mb-0">{{product.productTitle}}</h6>
+                    </a>                    
                     <p class="mb-0">{{product.productPrice | currency:"Rp ":'symbol':'1.0' }}</p>
                     <a (click)="addToCart(product)" class="add-cart"><i class="fas fa-cart-plus"></i> Add To Cart</a>
                     <div>                

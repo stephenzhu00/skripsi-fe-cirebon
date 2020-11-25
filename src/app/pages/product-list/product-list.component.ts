@@ -14,6 +14,7 @@ export class ProductListComponent implements OnInit {
   listProduct;
   categorySelected = 'all';
   ratingSelected = 'ratingall';
+  isLoading = true;
 
   constructor(public cartService:CartService,
               public productService:ProductService,
@@ -22,8 +23,10 @@ export class ProductListComponent implements OnInit {
     config.readonly = true;
   }
   ngOnInit(): void {
+    this.isLoading = true;
     this.productService.getAllProductObservable().subscribe((data:InterfaceListProduct)=>{
       this.listProduct = data.product;
+      this.isLoading = false;
     });
     this.categorySelected='all';
     console.log("mulai");
