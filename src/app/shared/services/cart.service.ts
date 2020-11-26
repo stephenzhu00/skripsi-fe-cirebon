@@ -1,7 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertService } from 'ngx-alerts';
-import { Transactions } from '../../transactions';
 import { InterfaceProduct } from '../../interfacePorduct';
 import { ProductService } from './product.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -18,8 +17,9 @@ const httpOptions = {
 })
 export class CartService{
   cart:InterfaceProduct[]= [];
-  transaction=Transactions;
-  urlTransaction = "http://localhost:8085/transaction";
+  transaction;
+  // urlTransaction = "http://localhost:8085/transaction";
+  urlTransaction = "/assets/transaction.json";
 
   constructor(private alertService: AlertService,
               private http:HttpClient,
@@ -97,6 +97,7 @@ export class CartService{
     let index:number = this.productService.listProduct.findIndex(item=>item.productId == productId);
     this.productService.listProduct[index].productQuantity+=qtyToUpdate;
   }
+  // Transaction Service
   getAllTransaction(){
     return this.http.get(this.urlTransaction);
   }

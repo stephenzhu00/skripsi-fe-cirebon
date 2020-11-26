@@ -8,7 +8,7 @@
 
 <div class="row">
     <div class="col-sm-1">
-        <img class="rounded" src="{{product.productImg}}" alt="" height="60" width="60" style="margin-left: 8px;">
+        <!-- <img class="rounded" src="{{product.productImg}}" alt="" height="60" width="60" style="margin-left: 8px;"> -->
     </div>
     <div class="col-sm-5 border-right">
         <div class="col">
@@ -18,11 +18,13 @@
                 </div>
         </div>
     </div>
-    <div class="col-sm-2 my-auto">
-        <h6 class="price-color">{{product.productPrice | currency:"Rp ":'symbol':'1.0'}}</h6>
+    <div class="col-sm-3 my-auto">
+        <h6 class="price-color">{{product.productPrice * product.productQuantity| currency:"Rp ":'symbol':'1.0'}}</h6>
     </div>    
-    <div class="col-sm-4 border-left text-center">
-        <div><ngb-rating [(rate)]="rating" [starTemplate]="t" [readonly]="submitted" [max]="5"></ngb-rating></div>
-        <div *ngIf="!submitted"><button class="btn btn-info btn-sm " (click)="saveRating()">Submit <i class="fab fa-telegram-plane"></i></button></div>
+    <div class="col-sm-3 border-left text-center">
+        <div *ngIf="transaction.status == 'delivered'">
+            <div><ngb-rating [(rate)]="rating" [starTemplate]="t" [readonly]="submitted" [max]="5"></ngb-rating></div>
+            <div *ngIf="!submitted"><button class="btn btn-info btn-sm " (click)="saveRating()">Submit <i class="fab fa-telegram-plane"></i></button></div>
+        </div>
     </div>    
 </div>

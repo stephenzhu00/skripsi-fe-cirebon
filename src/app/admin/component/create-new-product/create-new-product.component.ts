@@ -56,15 +56,11 @@ export class CreateNewProductComponent implements OnInit {
   // tslint:disable-next-line: typedef
   onSubmit(){
     this.formSubmitted = true;
-    console.log(this.form.value);
     if(this.form.invalid){
       return;
     }
     var filePath = `${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}`;
     const fileRef = this.fireStorage.ref(filePath);
-    // console.log("uploading");
-    // console.log(this.form.value.productImg);
-    // console.log("berhasil");
     this.alertService.info('Uploading Product');
     this.progressBar.startLoading();
     const myObserver = {

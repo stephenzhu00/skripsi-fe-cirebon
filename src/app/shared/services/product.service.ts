@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-// import { Products } from '../../products';
+import { retry } from 'rxjs/operators';
 import { InterfaceProduct, InterfaceListProduct } from '../../interfacePorduct';
 import { HttpClient } from '@angular/common/http';
 
@@ -17,15 +17,13 @@ export class ProductService {
   }
 
   getAllProduct(){
-    return this.http.get(this.urlProduct).subscribe((data:InterfaceListProduct)=>{
-      console.log("masuk");
-      console.log(data);
+    return this.http.get(this.urlProduct).pipe(retry(3)).subscribe((data:InterfaceListProduct)=>{
       this.listProduct = data.product;
     });
   }
 
   getAllProductObservable(){
-    return this.http.get(this.urlProduct);
+    return this.http.get(this.urlProduct).pipe(retry(3));
   }
 
   refreshListProduct(){

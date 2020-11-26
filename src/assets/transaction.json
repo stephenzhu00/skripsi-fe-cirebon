@@ -1,0 +1,54 @@
+[
+    {
+        "transaction_id":1,
+        "status":"waiting",
+        "total":5650000,
+        "created_date":"18 Aug 2020",
+        "items":[
+            {
+                "productId":4,
+                "productTitle":"Ayunan Gantung",
+                "productImg":"https://firebasestorage.googleapis.com/v0/b/skripsi-a402f.appspot.com/o/Rotan%2FAyunan%20Gantung.jpg?alt=media&token=c05aab5a-cb83-4acb-8bcb-48a8da66b0e7",
+                "productDesc":"Bahan : Rotan Sintet",
+                "productPrice":2650000,
+                "productRating":4.5,
+                "productQuantity":1
+            },
+            {
+                "productId":5,
+                "productTitle":"Lemari Rotan Sintetic",
+                "productImg":"https://firebasestorage.googleapis.com/v0/b/skripsi-a402f.appspot.com/o/Rotan%2FLemari%20Rotan%20Sintetic.png?alt=media&token=bfc022de-68ea-4670-87de-08b632c2010f",
+                "productDesc":"Bahan: Rotan Sinteti",
+                "productPrice":1500000,
+                "productRating":4.5,
+                "productQuantity":2
+            }
+        ]
+    },
+    {
+        "transaction_id":2,
+        "status":"delivered",
+        "total":4350000,
+        "created_date":"19 Aug 2020",
+        "items":[
+            {
+                "productId":5,
+                "productTitle":"Lemari Rotan Sintetic",
+                "productImg":"https://firebasestorage.googleapis.com/v0/b/skripsi-a402f.appspot.com/o/Rotan%2FLemari%20Rotan%20Sintetic.png?alt=media&token=bfc022de-68ea-4670-87de-08b632c2010f",
+                "productDesc":"Bahan: Rotan Sinteti",
+                "productPrice":1500000,
+                "productRating":4.5,
+                "productQuantity":1
+            },
+            {
+                "productId":6,
+                "productTitle":"Lemari Laci Rotan Sintetis",
+                "productImg":"https://firebasestorage.googleapis.com/v0/b/skripsi-a402f.appspot.com/o/Rotan%2FLemari%20Laci%20Rotan%20Sintetis.jpg?alt=media&token=fe99cc16-6dd0-4c26-93a1-cef0eaa8d43d",
+                "productDesc":"Bahan : Rotan Sintet",
+                "productPrice":950000,
+                "productRating":2.5,
+                "productQuantity":3
+            }
+        ]
+    }
+]

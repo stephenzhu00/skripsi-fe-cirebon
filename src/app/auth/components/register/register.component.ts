@@ -55,7 +55,6 @@ export class RegisterComponent implements OnInit {
         this.alertService.danger('Fail Register');
       },
     };
-    console.log(this.form.value);
     this.authService.register(this.form.value).subscribe(myObserver);
   }
 

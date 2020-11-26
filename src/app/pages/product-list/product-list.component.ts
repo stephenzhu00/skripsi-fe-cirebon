@@ -29,7 +29,6 @@ export class ProductListComponent implements OnInit {
       this.isLoading = false;
     });
     this.categorySelected='all';
-    console.log("mulai");
   }
 
   addToCart(product){
@@ -64,7 +63,6 @@ export class ProductListComponent implements OnInit {
 
   searchProduct(queryInput){
     this.queryInput =queryInput;
-    console.log(queryInput);
     this.listProduct = this.productService.listProduct.filter(function(item){
       return item.productTitle.toLowerCase().includes(queryInput.toLowerCase());
     });
