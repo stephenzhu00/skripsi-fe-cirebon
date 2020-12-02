@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery-9';
 
 @Component({
@@ -6,7 +6,7 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
   templateUrl: './product-gallery.component.html',
   styleUrls: ['./product-gallery.component.scss']
 })
-export class ProductGalleryComponent implements  OnInit {
+export class ProductGalleryComponent implements  OnInit , OnChanges{
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
   @Input() productsImage;
@@ -29,27 +29,11 @@ export class ProductGalleryComponent implements  OnInit {
               previewArrows:false,
               previewFullscreen:true,
               previewCloseOnClick:true
-            //   thumbnailsColumns: 3,
-            //   arrowPrevIcon:'fa fa-chevron-left',
-            //   arrowNextIcon:'fa fa-chevron-right',
-            // previewInfinityMove:true,
-
           },
-          // max-width 400, cannot preview
           {
               breakpoint: 400,
               preview: false
           }
-          //   max-width 800
-          //   {
-          //       breakpoint: 800,
-          //       width: '100%',
-          //       height: '600px',
-          //       imagePercent: 80,
-          //       thumbnailsPercent: 20,
-          //       thumbnailsMargin: 20,
-          //       thumbnailMargin: 20
-          //   },
       ];
 
       this.galleryImages = [
@@ -59,5 +43,14 @@ export class ProductGalleryComponent implements  OnInit {
               big: this.productsImage
           }
       ];
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.galleryImages = [
+      {
+          small: this.productsImage,
+          medium: this.productsImage,
+          big: this.productsImage
+      }
+  ];
   }
 }
