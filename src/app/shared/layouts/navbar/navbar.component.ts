@@ -4,6 +4,7 @@ import { ProgressBarService } from '../../services/progress-bar.service';
 import { AuthService } from '../../services/auth.service';
 import { AlertService } from 'ngx-alerts';
 import { Router } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +17,8 @@ export class NavbarComponent implements OnInit {
               public progressBar:ProgressBarService,
               public authService:AuthService,
               private alertService:AlertService,
-              private router:Router) { }
+              private router:Router,
+              private cartService:CartService) { }
 
   ngOnInit(): void {
     this.progressBar.progressRef = this.progress.ref('progressBar');
@@ -28,7 +30,9 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(){
+    this.cartService.cart = [];
     localStorage.removeItem('token');
+    localStorage.setItem('cart',JSON.stringify(this.cartService.cart));
     this.router.navigate(['/auth/login']);
     this.alertService.success("Logged Out");
   }

@@ -16,7 +16,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CartService{
-  cart:InterfaceProduct[]= [];
+  cart:any= [];
   transaction;
   // urlTransaction = "http://localhost:8085/transaction";
   urlTransaction = "http://127.0.0.1:5000/transactions-history";
