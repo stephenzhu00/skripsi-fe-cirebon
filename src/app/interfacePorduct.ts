@@ -10,4 +10,5 @@ export interface InterfaceProduct{
 }
 export interface InterfaceListProduct{
     product:InterfaceProduct[];
+    recommendation:any;
 }

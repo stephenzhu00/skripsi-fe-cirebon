@@ -9,15 +9,15 @@ import { ProductService } from '../../shared/services/product.service';
   styleUrls: ['./recommendation.component.scss']
 })
 export class RecommendationComponent implements OnInit {
-  @Input() clickedProduct:InterfaceProduct;
-  listRecommendation:any;
+  // @Input() clickedProduct:InterfaceProduct;
+  @Input() listRecommendation:any;
   constructor(private http:HttpClient,private productService:ProductService) { }
 
   ngOnInit(): void {
-    this.productService.getRecommendation(this.clickedProduct.productId).subscribe((data)=>{
-      this.listRecommendation = data;
-      // this.listRecommendation = this.listRecommendation.slice(0,4);
-    });
+    // this.productService.getRecommendation(this.clickedProduct.productId).subscribe((data)=>{
+    //   this.listRecommendation = data;
+    //   // this.listRecommendation = this.listRecommendation.slice(0,4);
+    // });
   }
 
 }

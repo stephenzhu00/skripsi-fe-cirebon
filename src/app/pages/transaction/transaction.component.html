@@ -39,7 +39,8 @@
           </div>
           <div class="row-sm-5">
             <div *ngFor="let product of transaction.items" style="margin-bottom: 8px;">
-              <app-product-rating [product]="product" [transaction]="transaction"></app-product-rating>
+              <!-- {{product | json}} -->
+              <app-product-rating [product]="product.productDetail" [transaction]="transaction"></app-product-rating>
             </div>
           </div>
         </div>

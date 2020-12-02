@@ -12,9 +12,10 @@ export class TransactionComponent implements OnInit {
   constructor(public cartService:CartService) { }
 
   ngOnInit(): void {
-    this.cartService.getAllTransaction().subscribe((data)=>{
-      this.transactionList = data;
-      console.log(data);
+    this.cartService.getAllTransactionById().subscribe((data:any)=>{
+      // console.log(data);
+      this.transactionList = data.transaction_history.history;
+      // console.log(this.transactionList[0]);
     });
   }
 }

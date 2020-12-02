@@ -13,6 +13,7 @@ import { InterfaceProduct, InterfaceListProduct } from '../../interfacePorduct';
 export class ProductDetailComponent implements OnInit {
   currentRate = 3.14;
   productDetail:any;
+  listRecommendation:any=[];
   constructor(private route:ActivatedRoute,
               private productService:ProductService,
               private cartService:CartService,
@@ -20,6 +21,7 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params=>{
       this.productService.getProduct(parseInt(params.get('id'))).subscribe((data:InterfaceListProduct)=>{
+        this.listRecommendation=data.recommendation;
         this.productDetail =data.product;
       });
     });

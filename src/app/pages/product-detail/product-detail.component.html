@@ -47,6 +47,7 @@
         </div>
         <div class='col-md-5'>
           <app-product-gallery [productsImage]="productDetail.productImg"></app-product-gallery>
+          <!-- <img [src]="productDetail.productImg" alt=""> -->
         </div>
       </div>
     </div>
@@ -63,3 +64,4 @@
 
 <!-- TODO RECOMMENDATION -->
 <!-- <app-recommendation [clickedProduct]="productDetail"></app-recommendation> -->
+<app-recommendation [listRecommendation]="listRecommendation"></app-recommendation>

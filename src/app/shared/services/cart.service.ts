@@ -19,7 +19,7 @@ export class CartService{
   cart:InterfaceProduct[]= [];
   transaction;
   // urlTransaction = "http://localhost:8085/transaction";
-  urlTransaction = "/assets/transaction.json";
+  urlTransaction = "http://127.0.0.1:5000/transactions-history";
 
   constructor(private alertService: AlertService,
               private http:HttpClient,
@@ -100,6 +100,15 @@ export class CartService{
   // Transaction Service
   getAllTransaction(){
     return this.http.get(this.urlTransaction);
+  }
+
+  getAllTransactionById(){
+    const user = JSON.parse(localStorage.getItem('token'));
+
+    var temp = '{ "userId" :'+user.id+'}';
+    const userId = JSON.parse(temp);
+    // console.log(userId);
+    return this.http.post(this.urlTransaction,userId);
   }
 
   createNewTransaction(){
