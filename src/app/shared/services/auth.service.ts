@@ -6,8 +6,8 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  authUrl = 'http://127.0.0.1:5000/';
-  // authUrl = 'https://skripsi-backend-final.herokuapp.com';
+  // authUrl = 'http://127.0.0.1:5000/';
+  authUrl = 'https://skripsi-backend-final.herokuapp.com';
   // TODO VIDEO 42 MAKE BOOTSWATCH ? 
   decodedToken:any;
 

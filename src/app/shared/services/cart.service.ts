@@ -1,5 +1,4 @@
 import { Injectable, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AlertService } from 'ngx-alerts';
 import { InterfaceProduct } from '../../interfacePorduct';
 import { ProductService } from './product.service';
@@ -19,9 +18,9 @@ export class CartService{
   cart:any= [];
   transaction;
   // urlTransaction = "http://localhost:8085/transaction";
-  urlTransaction = "http://127.0.0.1:5000/transactions-history";
-  urlCreateInvoice="http://127.0.0.1:5000/transactions";
-  urlRating ="http://127.0.0.1:5000/ratings";
+  urlTransaction = "https://skripsi-backend-final.herokuapp.com/transactions-history";
+  urlCreateInvoice="https://skripsi-backend-final.herokuapp.com/transactions";
+  urlRating ="https://skripsi-backend-final.herokuapp.com/ratings";
 
   constructor(private alertService: AlertService,
               private http:HttpClient,

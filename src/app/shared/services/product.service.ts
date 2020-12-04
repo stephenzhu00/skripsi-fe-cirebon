@@ -10,8 +10,8 @@ export class ProductService {
   listProduct:InterfaceProduct[];
   // listProduct:any;
   productDetail;
-  private urlProduct ="http://127.0.0.1:5000/products";
-  // private urlProduct='https://skripsi-backend-final.herokuapp.com/products';
+  // private urlProduct ="http://127.0.0.1:5000/products";
+  private urlProduct='https://skripsi-backend-final.herokuapp.com/products';
   constructor(private http:HttpClient) { 
     this.getAllProduct();
   }
