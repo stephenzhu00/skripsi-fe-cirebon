@@ -36,8 +36,7 @@
                                         <div class="quantity">
                                             <div class="pro-qty-2">
                                                 <i class="fas fa-chevron-left" (click)="decr(product)"></i>
-                                                <input #qtyInput type="text" [value]="product.productQuantity" (change)="product.productQuantity = qtyInput.value">
-                                                <!-- TODO KASIH EVENT DAN VALUE BINDING  -->
+                                                <input #qtyInput type="text" [value]="product.productQuantity" (change)="updateQty(product,qtyInput.value)">
                                                 <i class="fas fa-chevron-right" (click)="incr(product)"></i>
                                             </div>
                                         </div>

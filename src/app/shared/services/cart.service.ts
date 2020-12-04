@@ -20,6 +20,8 @@ export class CartService{
   transaction;
   // urlTransaction = "http://localhost:8085/transaction";
   urlTransaction = "http://127.0.0.1:5000/transactions-history";
+  urlCreateInvoice="http://127.0.0.1:5000/transactions";
+  urlRating ="http://127.0.0.1:5000/ratings";
 
   constructor(private alertService: AlertService,
               private http:HttpClient,
@@ -77,6 +79,13 @@ export class CartService{
     }
     localStorage.setItem('cart',JSON.stringify(this.cart));
   }
+  updateQtyManually(product,qtyInput){
+    var index = this.cart.findIndex(item=> item.productId === product.productId);
+    if(index > -1){
+      this.cart[index].productQuantity = parseInt(qtyInput);
+    }
+    localStorage.setItem('cart',JSON.stringify(this.cart));
+  }
   calculateTotalPrice():number{
     if(!this.cart || !this.cart.length || this.cart == null || this.cart == undefined) {
       return 0;
@@ -97,6 +106,7 @@ export class CartService{
     let index:number = this.productService.listProduct.findIndex(item=>item.productId == productId);
     this.productService.listProduct[index].productQuantity+=qtyToUpdate;
   }
+
   // Transaction Service
   getAllTransaction(){
     return this.http.get(this.urlTransaction);
@@ -111,14 +121,17 @@ export class CartService{
     return this.http.post(this.urlTransaction,userId);
   }
 
-  createNewTransaction(){
+  createNewTransaction(model){
     // TODO CREATE INVOICE
-    let myCart = JSON.parse(localStorage.getItem('cart'));
     localStorage.removeItem('cart');
     localStorage.setItem('cart','[]');
     this.cart = [];
-    return this.http.post(this.urlTransaction,myCart,httpOptions).pipe(
+    return this.http.post(this.urlCreateInvoice,model,httpOptions).pipe(
       // ADDING ERROR
     );
+  }
+
+  updateRating(model){
+    return this.http.post(this.urlRating,model).pipe();
   }
 }

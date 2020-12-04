@@ -12,8 +12,8 @@ export class ViewTransactionComponent implements OnInit {
   constructor(public cartService:CartService) { }
 
   ngOnInit(): void {
-    this.cartService.getAllTransaction().subscribe((data)=>{
-      this.transactionList = data;
+    this.cartService.getAllTransaction().subscribe((data:any)=>{
+      this.transactionList = data.transaction_history.history;
     });
   }
   processTransaction(transaction){

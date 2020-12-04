@@ -40,22 +40,23 @@
               <hr>
             </div>
             <div class="row-sm-5">
+              <!-- {{transaction | json}} -->
               <div *ngFor="let product of transaction.items" style="margin-bottom: 8px;">
                 <!-- <app-product-rating [product]="product" [transaction]="transaction"></app-product-rating> -->
                 <div class="row">
                     <div class="col-sm-1">
-                        <img class="rounded" src="{{product.productImg}}" alt="" height="60" width="60" style="margin-left: 8px;">
+                        <img class="rounded" src="{{product.productDetail.productImg}}" alt="" height="60" width="60" style="margin-left: 8px;">
                     </div>
                     <div class="col-sm-8 border-right">
                         <div class="col">
-                            <div class="row-sm-6"><a [routerLink]="['/product/'+product.productId]" ><h6 class="title-color">{{product.productTitle}}</h6></a></div>
+                            <div class="row-sm-6"><a [routerLink]="['/product/'+product.productDetail.productId]" ><h6 class="title-color">{{product.productDetail.productTitle}}</h6></a></div>
                                 <div class="row-sm-6">
-                                    <span class="price-color">{{product.productPrice | currency:"Rp ":'symbol':'1.0'}} </span>{{product.productQuantity}} Produk
+                                    <span class="price-color">{{product.productDetail.productPrice | currency:"Rp ":'symbol':'1.0'}} </span>{{product.productDetail.productQuantity}} Produk
                                 </div>
                         </div>
                     </div>
                     <div class="col-sm-3 my-auto">
-                        <h6 class="price-color">{{product.productPrice * product.productQuantity| currency:"Rp ":'symbol':'1.0'}}</h6>
+                        <h6 class="price-color">{{product.productDetail.productPrice * product.productDetail.productQuantity| currency:"Rp ":'symbol':'1.0'}}</h6>
                     </div>    
                 </div>
               </div>

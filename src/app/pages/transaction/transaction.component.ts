@@ -16,6 +16,7 @@ export class TransactionComponent implements OnInit {
       // console.log(data);
       this.transactionList = data.transaction_history.history;
       // console.log(this.transactionList[0]);
+      // console.log(this.transactionList);
     });
   }
 }

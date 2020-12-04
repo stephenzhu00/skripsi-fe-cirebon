@@ -8,6 +8,9 @@
   <div class="row">
     <div class="col-lg-2"></div>
     <div class="col-lg-8">
+      <div *ngIf="transactionList?.length == 0 ">
+        <h3>NO TRANSACTION </h3>
+      </div>
       <div *ngFor="let transaction of transactionList" class="card shadow-sm" style="min-height: 200px;margin-top: 10px;">
         <div class="col">
           <div class="row-sm-2 pt-2">
@@ -40,7 +43,7 @@
           <div class="row-sm-5">
             <div *ngFor="let product of transaction.items" style="margin-bottom: 8px;">
               <!-- {{product | json}} -->
-              <app-product-rating [product]="product.productDetail" [transaction]="transaction"></app-product-rating>
+              <app-product-rating [product]="product" [transaction]="transaction"></app-product-rating>
             </div>
           </div>
         </div>
