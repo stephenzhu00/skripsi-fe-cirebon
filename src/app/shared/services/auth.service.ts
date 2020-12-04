@@ -15,7 +15,7 @@ export class AuthService {
 
   }
   login(model:any){
-    return this.http.post(this.authUrl+'login',model).pipe(
+    return this.http.post(this.authUrl+'/login',model).pipe(
       map((response:any)=>{
         const user = response.users;
         if(user){
@@ -26,7 +26,7 @@ export class AuthService {
     );
   }
   register(model:any){
-    return this.http.post(this.authUrl+'register',model, { responseType: 'text' });
+    return this.http.post(this.authUrl+'/register',model, { responseType: 'text' });
   }
 
   loggedIn(){
